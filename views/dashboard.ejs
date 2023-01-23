@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/views/assets/style.css" type="text/css">
+</head>
+<body>
+    <%- include("partials/navbar copy") %>
+    <br>
+    <div class="dashboard">
+        <h3 style="margin-left:3%;"> Welcome <u><%= username %></u>, in the Dashboard</h3>
+    <a class="add-btn" href="/add">Add New Restaurant</a>
+    <form class="search" >
+        <input  type="text" id="search" onkeyup="cariData()" placeholder="Search the Restaurant...">
+    </form>
+    <div class="parent">
+        <% for(let i = 0; i < resto.length; i++) { %>
+        <div>
+            <div> 
+                <ul class="cafe">
+                    <li><%= resto[i].name %>
+                        <br>
+                        <button class="btn" onclick="onViewResto(<%= resto[i].id %>)">View</button>
+                        <button class="btn" onclick="onEditResto(<%= resto[i].id %>)">Update</button>
+                        <form class="delete" action="/delete/<%= resto[i].id %>" method="get">
+                            <button id="delete" class="btn" type="submit">Delete</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <%}%>
+    </div>
+</div>
+</body>
+<script>
+        function onViewResto(id){
+            window.location.href = `/detail/${id}`;
+        }
+        
+    function onEditResto(id){
+        window.location.href = `/edit/${id}`;
+    }
+
+    function cariData()
+    {
+        let input = document.getElementById("search");
+        let filter = input.value.toLowerCase();
+        let ul = document.getElementById("list");
+        let li = document.querySelectorAll("li");
+        let btn = document.getElementsByClassName("btn");
+        console.log(li)
+        for(let i = 0; i<li.length; i++){
+            let list = document.querySelectorAll("li")[i];
+            if(list.innerHTML.toLowerCase().indexOf(filter) > -1){
+            li[i].style.display = "";
+            } else{
+                li[i].style.display = "none";
+            }
+        }     
+        btn.style.display = "none"
+    }
+    </script>
+</html>

@@ -1,0 +1,297 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: lightgrey;
+  width: 100%;
+  height: 100%;
+}
+
+#img1,
+#img2,
+#img3,
+#img4,
+.loginPage,
+.aboutPage {
+  border: 5px solid black;
+}
+
+#img1 {
+  background-image: url("https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA11N2LY.img");
+  background-size: cover;
+  width: 100%;
+  height: 550px;
+  margin: 0px;
+  text-align: center;
+}
+
+#img2 {
+  background-image: url("/views/assets/RE4wtbz.jfif");
+  background-size: cover;
+  width: 100%;
+  height: 550px;
+}
+
+#img3 {
+  background-image:  url("https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA11N2LY.img");
+  background-size: cover;
+  width: 100%;
+  height: 550px;
+}
+
+#img4 {
+  background-image: url("https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA12sf7z.img");
+  background-size: cover;
+  width: 100%;
+  height: 550px;
+}
+
+.header {
+  background-color: lightgrey;
+  /* position: sticky; */
+  display: inline-block;
+  width: 100%;
+  height: auto;
+}
+
+.header a {
+  text-decoration: none;
+  font-size: large;
+  font-weight: bold;
+  font-family: Arial;
+  color: black;
+  /* margin: 0%; */
+}
+
+#home {
+  margin-right: 1%;
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+  font-size: large;
+  font-weight: bold;
+  font-family: Arial;
+  margin-left: 0%;
+  margin-right: 1%;
+  color: black;
+}
+
+.dropdown_list {
+  display: none;
+  position: absolute;
+}
+
+.dropdown:hover .dropdown_list {
+  display: block;
+}
+
+.dropdown:hover .dropdown_list a {
+  padding: 3px;
+}
+
+#logo {
+  font-size: 25px;
+  font-weight: bolder;
+  font-family: Arial black;
+  margin-left: 3%;
+  margin-right: 3%;
+  color: orange;
+}
+
+#register {
+  background-color: red;
+  color: white;
+  float: right;
+  border-radius: 5px;
+  padding: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.loginPage,
+.aboutPage {
+  background-image: url("https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA11N2LY.img");
+  background-size: cover;
+  text-align: center;
+  width: 100%;
+  height: 550px;
+  margin: 0px;
+}
+
+#login {
+  float: right;
+  margin: 10px;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  /* background-color: green; */
+}
+
+.add-btn {
+  background-color: burlywood;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  padding: 10px 10px;
+  margin: auto;
+}
+
+.btn {
+  /* background-color: grey; */
+  border-radius: 5px;
+  color: black;
+  font-size: normal;
+  cursor: pointer;
+}
+
+.delete {
+  margin: 0px auto;
+}
+
+#delete {
+  background-color: grey;
+  border-radius: 5px;
+  color: white;
+}
+
+.search {
+  margin: 10px;
+  text-align: center;
+}
+input {
+  margin: 10px;
+  width: 30%;
+  /* justify-content: center; */
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: 70%;
+  height: auto;
+  margin: auto;
+  padding: 20px;
+  row-gap: 20px;
+  column-gap: 20px;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
+.parent > div {
+  width:100%;
+  height:100%; 
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid black;
+  padding: 5px;
+  text-decoration: none;
+  box-sizing: border-box;
+  background-color: rgb(192, 218, 218);
+}
+
+.cafe {
+  display: flex;
+  list-style-type: none;
+}
+
+ul {
+  margin: 10px;
+  font-size: 30px;
+}
+
+
+.register {
+  background-color: grey;
+  text-align: left;
+  margin: auto;
+  width: 25%;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.login {
+  background-color: grey;
+  text-align: left;
+  margin: auto;
+  width: 25%;
+  padding: 10px;
+}
+
+.register input {
+  width: 90%;
+}
+
+.login input {
+  width: 90%;
+}
+
+.add {
+  background-color: grey;
+  margin: auto;
+  color: white;
+  width: 25%;
+  padding: 10px;
+}
+
+.add input {
+  width: 80%;
+}
+
+.detail {
+  background-color: grey;
+  border: 1px solid black;
+  width: 40%;
+  font-weight: bold;
+  margin: auto;
+}
+
+.edit {
+  background-color: grey;
+  padding: 10px;
+  margin: auto;
+  color: white;
+  font-weight: bold;
+  width: 25%;
+}
+
+.edit input {
+  width: 80%;
+}
+
+.homePage p {
+  position: relative;
+  color: white;
+  font-size: 200%;
+}
+
+.aboutPage p {
+  position: relative;
+  color: white;
+  font-size: 200%;
+}
+
+button.scroll {
+  float: right;
+  margin-top: 40%;
+}
+
+#btn1 {
+  margin-top: 21%;
+}
+
+#top {
+  color: red;
+  /* position: fixed; */
+  /* display: block; */
+  /* margin-left: 100px; */
+}

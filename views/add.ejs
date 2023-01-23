@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/views/assets/style.css" type="text/css">
+</head>
+<body>
+    <%- include("partials/navbar copy") %>
+    <h1 style="text-align: center;">Add the Restaurant : </h1>
+    <form class="add" action="/add" method="post" >
+        <div>
+            <label for="name">Name :</label>
+        </div>
+        <div>
+            <input name="name" type="text">
+        </div>
+        <div>
+            <label for="category">Category :</label>
+        </div>
+        <div>
+            <input name="category" type="text">
+        </div>
+        <div>
+            <label for="products">Product :</label>
+        </div>
+        <div>
+            <input name="products" type="text">
+        </div>
+        <div>
+            <label for="price">Price :</label>
+        </div>
+        <div>
+            <input name="price" type="number">
+        </div>
+        <div>
+            <button type="submit" value="submit">Submit</button>
+        </div>
+    </form>
+    <br>
+    <a style="margin:48%" href="/dashboard">Back</a>
+</body>
+</html>
