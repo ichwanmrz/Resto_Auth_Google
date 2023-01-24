@@ -9,10 +9,9 @@
 </head>
 <body>
     <%- include("partials/navbar copy") %>
-    <br>
     <div class="dashboard">
-        <h3 style="margin-left:3%;"> Welcome <u><%= username %></u>, in the Dashboard</h3>
-    <a class="add-btn" href="/add">Add New Restaurant</a>
+        <h3 style="margin-left:3%;"> Welcome <%= username %>, in the Dashboard.</h3>
+        <a class="add-btn" href="/add">Add New Restaurant</a>
     <form class="search" >
         <input  type="text" id="search" onkeyup="cariData()" placeholder="Search the Restaurant...">
     </form>

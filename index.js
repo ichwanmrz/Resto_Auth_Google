@@ -1,7 +1,5 @@
 const express = require('express');
 const app = express();
-const {param,default: req } = require("express/lib/request");
-const {contentType,default: res,send,status} = require("express/lib/response");
 const { resto_profile, resto_product } = require('./models');
 const flash = require('express-flash');
 const port = 3000;
@@ -27,9 +25,9 @@ app.get('/', (req, res) => {
     res.render('home.ejs')
 })
 
-app.get('/about', (req, res) => {
-    res.render("about.ejs");
-  });
+app.get('/about', restrict, (req, res) => {
+  res.render('about.ejs')
+})
 
 app.get('/register', (req, res) => {
     res.render("register.ejs");
@@ -58,6 +56,13 @@ app.get('/whoami', restrict, (req, res) => {
     res.render('whoami.ejs', { username })
 })
 
+app.get('/profile/',  restrict, (req, res) => {
+  const {username, password, address, membership} = req.user.dataValues
+        res.render("profile.ejs", {
+          username, password, address, membership
+        });
+});
+
 app.get("/detail/:id", restrict, (req, res) => {
     const { id } = req.params;
     const {username} = req.user.dataValues
@@ -76,9 +81,7 @@ app.get("/detail/:id", restrict, (req, res) => {
   app.get("/dashboard", restrict, (req, res) => {
     const {username} = req.user.dataValues
     resto_product
-      .findAll({
-        // include: resto_product,
-      })
+      .findAll({})
       .then((resto) => {
         res.render("dashboard.ejs", {
           resto, username,
