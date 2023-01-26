@@ -3,9 +3,14 @@ const app = express();
 const { resto_profile, resto_product } = require('./models');
 const flash = require('express-flash');
 const port = 3000;
+const apiRouter = require('./routes/api')
 const passport = require('./lib/passport');
+// const passportJWT = require('./lib/passport-jwt')
 const session = require('express-session');
 const restrict = require('./middlewares/restrict');
+// const restrictJWT = passportJWT.authenticate('jwt', {
+//   session: false
+// })
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
@@ -16,8 +21,10 @@ app.use(session({
     saveUninitialized: false
     }));
 app.use(passport.initialize());
+// app.use(passportJWT.initialize())
 app.use(passport.session());
 app.use(flash());
+app.use('/api', apiRouter)
 
 app.set("view engine", "ejs");
 
@@ -25,7 +32,7 @@ app.get('/', (req, res) => {
     res.render('home.ejs')
 })
 
-app.get('/about', restrict, (req, res) => {
+app.get('/about', (req, res) => {
   res.render('about.ejs')
 })
 
@@ -51,10 +58,6 @@ app.post('/login', passport.authenticate('local', {
     failureFlash: true
 }))
 
-app.get('/whoami', restrict, (req, res) => {
-    const {username} = req.user.dataValues
-    res.render('whoami.ejs', { username })
-})
 
 app.get('/profile/',  restrict, (req, res) => {
   const {username, password, address, membership} = req.user.dataValues
