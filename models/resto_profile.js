@@ -23,9 +23,9 @@ module.exports = (sequelize, DataTypes) => {
     static #encrypt = (password) => bcrypt.hashSync(password, 10)
     // static #encrypt = () => bcrypt.hashSync(myPlaintextPassword, salt)
 
-    static register = ({username, password, address}) => {
+    static register = ({email, username, password, address}) => {
       const encryptedPassword =this.#encrypt(password)
-      return this.create({username, password:encryptedPassword, address, membership: true, isSuperAdmin: false})
+      return this.create({email, username, password:encryptedPassword, address, membership: true, isSuperAdmin: false})
     }
 
   checkPassword = (password) => bcrypt.compareSync(password, this.password)
@@ -56,6 +56,7 @@ module.exports = (sequelize, DataTypes) => {
         }
 }
   resto_profile.init({
+    email: DataTypes.STRING,
     username: DataTypes.STRING,
     password: DataTypes.STRING,
     address: DataTypes.STRING,
