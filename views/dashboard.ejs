@@ -8,32 +8,15 @@
     <link rel="stylesheet" href="/views/assets/style.css" type="text/css">
 </head>
 <body>
-    <%- include("partials/navbar copy") %>
+
     <div class="dashboard">
-        <h3 style="margin-left:3%;"> Welcome <%= username %>, in the Dashboard.</h3>
+        <h3 style="margin-left:3%;"> Welcome in the Dashboard.</h3>
         <a class="add-btn" href="/add">Add New Restaurant</a>
-    <form class="search" >
+   
         <input  type="text" id="search" onkeyup="cariData()" placeholder="Search the Restaurant...">
     </form>
-    <div class="parent">
-        <% for(let i = 0; i < resto.length; i++) { %>
-        <div>
-            <div> 
-                <ul class="cafe">
-                    <li><%= resto[i].name %>
-                        <br>
-                        <button class="btn" onclick="onViewResto(<%= resto[i].id %>)">View</button>
-                        <button class="btn" onclick="onEditResto(<%= resto[i].id %>)">Update</button>
-                        <form class="delete" action="/delete/<%= resto[i].id %>" method="get">
-                            <button id="delete" class="btn" type="submit">Delete</button>
-                        </form>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <%}%>
-    </div>
-</div>
+   
+</div> 
 </body>
 <script>
         function onViewResto(id){

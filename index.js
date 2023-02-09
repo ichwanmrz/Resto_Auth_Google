@@ -81,13 +81,13 @@ app.get("/detail/:id", restrict, (req, res) => {
       });
     });
   
-  app.get("/dashboard", restrict, (req, res) => {
-    const {username} = req.user.dataValues
+  app.get("/dashboard", (req, res) => {
+    // const {username} = req.user.dataValues
     resto_product
       .findAll({})
       .then((resto) => {
         res.render("dashboard.ejs", {
-          resto, username,
+          // resto, username,
         });
       });
   });
