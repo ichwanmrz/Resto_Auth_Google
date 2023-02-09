@@ -12,6 +12,18 @@
     <h1 style="text-align: center;">Update the Restaurant : </h1>
     <form class="edit" action="/edit/<%= resto.id %>" method="post" >
         <div>
+            <label for="username">Owner :</label>
+        </div>
+        <div>
+            <input name="username" type="text" value="<%= resto.username %>">
+        </div>
+        <div>
+            <label for="email">Email :</label>
+        </div>
+        <div>
+            <input name="email" type="email" value="<%= resto.email %>">
+        </div>
+        <div>
             <label for="name">Name :</label>
         </div>
         <div>
